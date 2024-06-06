@@ -18,7 +18,7 @@ function init() {
 
 # A mediation service to perform mediation between the client and the backend service.
 # bound to port `9090`.
-service / on new http:Listener(9090) {
+service / on new http:Listener(9089) {
 
     resource function get [string ...paths](http:Caller caller, http:Request req) returns error? {
         log:printInfo("Received GET request for : " + req.rawPath);
@@ -39,6 +39,7 @@ service / on new http:Listener(9090) {
     }
 
     resource function post [string ...paths](http:Caller caller, http:Request req) returns error? {
+        log:printInfo("Received POST request for : " + req.rawPath);
         string contextPath = resolveContextPath(req.rawPath);
         if (contextPath == "") {
             return error("No matching context path found for : " + req.rawPath);
