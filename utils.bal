@@ -5,14 +5,14 @@ public function encryptData(byte[] dataToBeEncrypted, string encodedPublicKey) r
     themis:PrivateKey privateKey = check themis:newPrivateKey1(check array:fromBase64(encodedServerPrivateKey));
     themis:PublicKey publicKey = check themis:newPublicKey1(check array:fromBase64(encodedPublicKey));
     themis:SecureMessage secureMessage = themis:newSecureMessage2(privateKey, publicKey);
-    return check secureMessage.wrap(dataToBeEncrypted);
+    return secureMessage.wrap(dataToBeEncrypted);
 }
 
 public function decryptData(byte[] dataToBeDecrypted, string encodedPublicKey) returns byte[]|error {
     themis:PrivateKey privateKey = check themis:newPrivateKey1(check array:fromBase64(encodedServerPrivateKey));
     themis:PublicKey publicKey = check themis:newPublicKey1(check array:fromBase64(encodedPublicKey));
     themis:SecureMessage secureMessage = themis:newSecureMessage2(privateKey, publicKey);
-    return check secureMessage.unwrap(dataToBeDecrypted);
+    return secureMessage.unwrap(dataToBeDecrypted);
 }
 
 public function maskData(MaskingConfig[] maskingConfig, json responsePayload) returns json|error? {

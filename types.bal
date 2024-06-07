@@ -3,7 +3,7 @@ public type EndpointConfig record {|
     string backendServiceEp;
     boolean encryptionEnabled;
     boolean cachingEnabled;
-    (MaskingConfig[] & readonly) maskingConfig?;  
+    MaskingConfig[] & readonly maskingConfig?;  
 |};
 
 public type MaskingConfig record {|
