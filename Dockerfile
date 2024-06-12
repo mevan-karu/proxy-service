@@ -8,7 +8,7 @@ USER root
 
 RUN bal build
 
-FROM eclipse-temurin:11.0.23_9-jre-focal
+FROM eclipse-temurin:11.0.23_9-jre-jammy
 
 ARG USER=app-user
 ARG USER_ID=10001
