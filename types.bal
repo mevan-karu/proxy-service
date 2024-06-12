@@ -7,7 +7,7 @@ public type EndpointConfig record {|
 |};
 
 public type MaskingConfig record {|
-    string fieldName;
+    string fieldPath;
     string maskingRegex;
     string maskingString;
 |};
