@@ -1,5 +1,6 @@
-import ballerina/jballerina.java;
 import proxy_service.java.lang as javalang;
+
+import ballerina/jballerina.java;
 
 # Ballerina class mapping for the Java `com.cossacklabs.themis.Keypair` class.
 @java:Binding {'class: "com.cossacklabs.themis.Keypair"}
@@ -24,6 +25,7 @@ public distinct class Keypair {
     public function toString() returns string {
         return java:toString(self.jObj) ?: "";
     }
+
     # The function that maps to the `equals` method of `com.cossacklabs.themis.Keypair`.
     #
     # + arg0 - The `javalang:Object` value required to map with the Java method parameter.
