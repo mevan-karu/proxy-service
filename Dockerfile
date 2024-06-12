@@ -1,4 +1,4 @@
-FROM ballerina/ballerina:2201.9.0
+FROM ballerina/ballerina:2201.5.5
 
 ADD . /proxy_service
 
@@ -8,7 +8,7 @@ USER root
 
 RUN bal build
 
-FROM eclipse-temurin:17.0.11_9-jre-focal
+FROM eclipse-temurin:11.0.23_9-jre-focal
 
 ARG USER=app-user
 ARG USER_ID=10001

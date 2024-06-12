@@ -1,6 +1,6 @@
-import proxy_service.java.lang as javalang;
-
 import ballerina/jballerina.java;
+import ballerina/jballerina.java.arrays as jarrays;
+import proxy_service.java.lang as javalang;
 
 # Ballerina class mapping for the Java `com.cossacklabs.themis.AsymmetricKey` class.
 @java:Binding {'class: "com.cossacklabs.themis.AsymmetricKey"}
@@ -25,7 +25,6 @@ public distinct class AsymmetricKey {
     public function toString() returns string {
         return java:toString(self.jObj) ?: "";
     }
-
     # The function that maps to the `equals` method of `com.cossacklabs.themis.AsymmetricKey`.
     #
     # + arg0 - The `javalang:Object` value required to map with the Java method parameter.
@@ -98,6 +97,16 @@ public distinct class AsymmetricKey {
 
 }
 
+# The constructor function to generate an object of `com.cossacklabs.themis.AsymmetricKey`.
+#
+# + arg0 - The `byte[]` value required to map with the Java constructor parameter.
+# + return - The new `AsymmetricKey` class generated.
+public function newAsymmetricKey1(byte[] arg0) returns AsymmetricKey|error {
+    handle externalObj = com_cossacklabs_themis_AsymmetricKey_newAsymmetricKey1(check jarrays:toHandle(arg0, "byte"));
+    AsymmetricKey newObj = new (externalObj);
+    return newObj;
+}
+
 # The function that retrieves the value of the public field `KEYTYPE_EC`.
 #
 # + return - The `int` value of the field.
@@ -168,5 +177,10 @@ function com_cossacklabs_themis_AsymmetricKey_getKEYTYPE_EC() returns int = @jav
 function com_cossacklabs_themis_AsymmetricKey_getKEYTYPE_RSA() returns int = @java:FieldGet {
     name: "KEYTYPE_RSA",
     'class: "com.cossacklabs.themis.AsymmetricKey"
+} external;
+
+function com_cossacklabs_themis_AsymmetricKey_newAsymmetricKey1(handle arg0) returns handle = @java:Constructor {
+    'class: "com.cossacklabs.themis.AsymmetricKey",
+    paramTypes: ["[B"]
 } external;
 
