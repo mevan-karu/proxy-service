@@ -16,7 +16,7 @@ ARG USER_GROUP=wso2
 ARG USER_GROUP_ID=10001
 ARG USER_HOME=/home/${USER}
 
-RUN apt-get update && apt-get install -y gnupg2
+RUN apt-get update && apt-get install -y gnupg
 
 RUN wget -qO - https://pkgs-ce.cossacklabs.com/gpg | apt-key add - && apt install -y apt-transport-https && echo "deb https://pkgs-ce.cossacklabs.com/stable/ubuntu focal main" >> /etc/apt/sources.list.d/cossacklabs.list && apt update && apt install -y libthemis libthemis-jni && cp /usr/lib/$(uname -m)-linux-gnu/jni/libthemis_jni.so /usr/lib
 
